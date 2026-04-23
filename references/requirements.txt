@@ -3,11 +3,11 @@ check Select any one of these labs (1, 2, 9, and 12) and improve its code using 
 check Must use PyQT6 library and have a gui interface (tkinter code or any other library will not be accepted).
 check Code is organized into modules where applicable (lab 11 is a good example of code separation).
 check Data must be stored in a proper format either in a CSV file, txt file, or database (excluding lab 12).
-Data validation for input coming from the keyboard.
+check Data validation for input coming from the keyboard.
 check Exception handling must be present to deal with runtime errors.
 check OOP best practices must be implemented (Separating code to classes, data hiding, inheritance - lab 10 and lab 12 are great examples).
-Proper documentation.
+check Proper documentation.
 check Using descriptive variable names, class names, and file names.
 check Docstrings for all functions.
 check Type hinting for all function headers.
-Public GitHub link submitted with all project files placed/merged into the main/master branch. The project files could range from python files, images, documents, images, sound files, text files, binary files, executable files, etc. (generally anything that is needed for the application to work) - Delete any files that are not used in the project or any extra branches you were working with - all code should be placed in the main/master branch.
+check Public GitHub link submitted with all project files placed/merged into the main/master branch. The project files could range from python files, images, documents, images, sound files, text files, binary files, executable files, etc. (generally anything that is needed for the application to work) - Delete any files that are not used in the project or any extra branches you were working with - all code should be placed in the main/master branch.
