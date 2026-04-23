@@ -7,13 +7,16 @@
     <x>0</x>
     <y>0</y>
     <width>324</width>
-    <height>412</height>
+    <height>275</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QLineEdit" name="lineEdit">
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QLineEdit" name="name_input">
    <property name="geometry">
     <rect>
      <x>140</x>
@@ -23,7 +26,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="name_label">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -36,7 +39,7 @@
     <string>Student Name:</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_2">
+  <widget class="QLabel" name="attempt_label">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -49,7 +52,7 @@
     <string>No of attempts:</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_3">
+  <widget class="QLabel" name="score1_label">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -62,7 +65,7 @@
     <string>Score 1:</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_4">
+  <widget class="QLabel" name="score2_label">
    <property name="geometry">
     <rect>
      <x>150</x>
@@ -75,7 +78,7 @@
     <string>Score 2:</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_2">
+  <widget class="QLineEdit" name="attempt_input">
    <property name="geometry">
     <rect>
      <x>140</x>
@@ -85,7 +88,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_3">
+  <widget class="QLineEdit" name="score1_input">
    <property name="geometry">
     <rect>
      <x>90</x>
@@ -95,27 +98,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_8">
-   <property name="geometry">
-    <rect>
-     <x>150</x>
-     <y>200</y>
-     <width>113</width>
-     <height>21</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEdit_9">
-   <property name="geometry">
-    <rect>
-     <x>150</x>
-     <y>200</y>
-     <width>113</width>
-     <height>21</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEdit_10">
+  <widget class="QLineEdit" name="score2_input">
    <property name="geometry">
     <rect>
      <x>210</x>
@@ -125,7 +108,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLabel" name="label_5">
+  <widget class="QLabel" name="score5_label">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -138,7 +121,7 @@
     <string>Score 5:</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_6">
+  <widget class="QLabel" name="score6_label">
    <property name="geometry">
     <rect>
      <x>150</x>
@@ -151,7 +134,7 @@
     <string>Score 6:</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_11">
+  <widget class="QLineEdit" name="score6_input">
    <property name="geometry">
     <rect>
      <x>210</x>
@@ -161,7 +144,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_4">
+  <widget class="QLineEdit" name="score5_input">
    <property name="geometry">
     <rect>
      <x>90</x>
@@ -171,7 +154,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLabel" name="label_7">
+  <widget class="QLabel" name="score3_label">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -184,7 +167,7 @@
     <string>Score 3:</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_8">
+  <widget class="QLabel" name="score4_label">
    <property name="geometry">
     <rect>
      <x>150</x>
@@ -197,7 +180,7 @@
     <string>Score 4:</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_12">
+  <widget class="QLineEdit" name="score4_input">
    <property name="geometry">
     <rect>
      <x>210</x>
@@ -207,7 +190,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_5">
+  <widget class="QLineEdit" name="score3_input">
    <property name="geometry">
     <rect>
      <x>90</x>
@@ -215,6 +198,35 @@
      <width>51</width>
      <height>21</height>
     </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="output_label">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>240</y>
+     <width>71</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel { color: red }</string>
+   </property>
+   <property name="text">
+    <string>Submitted</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="submit_button">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>200</y>
+     <width>171</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Submit</string>
    </property>
   </widget>
  </widget>
