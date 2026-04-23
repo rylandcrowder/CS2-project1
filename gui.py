@@ -70,12 +70,12 @@ class Ui_Form(object):
         self.submit_button = QtWidgets.QPushButton(parent=Form)
         self.submit_button.setGeometry(QtCore.QRect(60, 230, 171, 32))
         self.submit_button.setObjectName("submit_button")
-        self.label = QtWidgets.QLabel(parent=Form)
-        self.label.setGeometry(QtCore.QRect(30, 180, 101, 16))
-        self.label.setObjectName("label")
-        self.lineEdit = QtWidgets.QLineEdit(parent=Form)
-        self.lineEdit.setGeometry(QtCore.QRect(140, 180, 121, 21))
-        self.lineEdit.setObjectName("lineEdit")
+        self.file_input_label = QtWidgets.QLabel(parent=Form)
+        self.file_input_label.setGeometry(QtCore.QRect(30, 180, 101, 16))
+        self.file_input_label.setObjectName("file_input_label")
+        self.file_input = QtWidgets.QLineEdit(parent=Form)
+        self.file_input.setGeometry(QtCore.QRect(140, 180, 121, 21))
+        self.file_input.setObjectName("file_input")
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
@@ -93,7 +93,7 @@ class Ui_Form(object):
         self.score4_label.setText(_translate("Form", "Score 4:"))
         self.output_label.setText(_translate("Form", "Submitted"))
         self.submit_button.setText(_translate("Form", "Submit"))
-        self.label.setText(_translate("Form", "File to write to:"))
+        self.file_input_label.setText(_translate("Form", "File to write to:"))
 
 
 if __name__ == "__main__":

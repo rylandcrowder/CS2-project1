@@ -232,7 +232,7 @@
     <string>Submit</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="file_input_label">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -245,7 +245,7 @@
     <string>File to write to:</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="file_input">
    <property name="geometry">
     <rect>
      <x>140</x>
