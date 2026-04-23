@@ -12,7 +12,7 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
-        Form.resize(324, 275)
+        Form.resize(303, 310)
         Form.setStyleSheet("")
         self.name_input = QtWidgets.QLineEdit(parent=Form)
         self.name_input.setGeometry(QtCore.QRect(160, 30, 101, 21))
@@ -63,13 +63,19 @@ class Ui_Form(object):
         self.score3_input.setGeometry(QtCore.QRect(90, 120, 51, 21))
         self.score3_input.setObjectName("score3_input")
         self.output_label = QtWidgets.QLabel(parent=Form)
-        self.output_label.setGeometry(QtCore.QRect(10, 239, 301, 21))
+        self.output_label.setGeometry(QtCore.QRect(0, 269, 301, 21))
         self.output_label.setStyleSheet("QLabel { color: red }")
         self.output_label.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.output_label.setObjectName("output_label")
         self.submit_button = QtWidgets.QPushButton(parent=Form)
-        self.submit_button.setGeometry(QtCore.QRect(70, 200, 171, 32))
+        self.submit_button.setGeometry(QtCore.QRect(60, 230, 171, 32))
         self.submit_button.setObjectName("submit_button")
+        self.label = QtWidgets.QLabel(parent=Form)
+        self.label.setGeometry(QtCore.QRect(30, 180, 101, 16))
+        self.label.setObjectName("label")
+        self.lineEdit = QtWidgets.QLineEdit(parent=Form)
+        self.lineEdit.setGeometry(QtCore.QRect(140, 180, 121, 21))
+        self.lineEdit.setObjectName("lineEdit")
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
@@ -87,6 +93,7 @@ class Ui_Form(object):
         self.score4_label.setText(_translate("Form", "Score 4:"))
         self.output_label.setText(_translate("Form", "Submitted"))
         self.submit_button.setText(_translate("Form", "Submit"))
+        self.label.setText(_translate("Form", "File to write to:"))
 
 
 if __name__ == "__main__":

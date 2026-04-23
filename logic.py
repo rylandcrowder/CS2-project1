@@ -91,14 +91,23 @@ class Logic(QMainWindow, Ui_Form):
             attempts = int(self.attempt_input.text())
             score_list = []
             for i in range(attempts):
-                score_list.append(exec(f'self.score{i+1}_input.text()'))
+                #check if exec works
+                score_to_append = exec(f'int(self.score{i+1}_input.text().strip())')
+                if 0 < score_to_append < 100:
+                    score_list.append(score_to_append)
+                else:
+                    self.output_label.setText("Please enter valid scores (0-100)")
+                    return
             
             if '' in score_list:
                 self.output_label.setText("Please fill in all score fields")
                 return
             
             self.write_to_file(name, score_list)
-        except (TypeError, ValueError):
+        except ValueError:
             self.output_label.setText("Error writing to file")
+            return
+        except TypeError:
+            self.output_label.setText("Please enter valid scores (0-100)")
             return
         
