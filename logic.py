@@ -1,5 +1,6 @@
 from PyQt6.QtWidgets import *
 from gui import *
+import csv
 
 class Logic(QMainWindow, Ui_Form):
     def __init__(self) -> None:
@@ -71,6 +72,33 @@ class Logic(QMainWindow, Ui_Form):
             self.output_label.setText("Please enter a valid number of attempts")
             self.hide_inputs()
         
+    def write_to_file(self, name, scores):
+        try:
+            with open('scores.csv', 'a', newline='') as file:
+                writer = csv.writer(file)
+                final_grade = max(scores) # figure this out
+                writer.writerow([name] + scores + [''] * (6 - len(scores)) + [final_grade])
+        except:
+            self.output_label.setText("Error writing to file")
 
     def submit(self):
-        pass
+        name = self.name_input.text()
+        if name == "":
+            self.output_label.setText("Please enter a name")
+            return
+        
+        try:
+            attempts = int(self.attempt_input.text())
+            score_list = []
+            for i in range(attempts):
+                score_list.append(exec(f'self.score{i+1}_input.text()'))
+            
+            if '' in score_list:
+                self.output_label.setText("Please fill in all score fields")
+                return
+            
+            self.write_to_file(name, score_list)
+        except (TypeError, ValueError):
+            self.output_label.setText("Error writing to file")
+            return
+        

@@ -1,7 +1,7 @@
-Select any one of these labs (1, 2, 9, and 12) and improve its code using the concepts we have covered in this class. Your project should have the items/features below:
+check Select any one of these labs (1, 2, 9, and 12) and improve its code using the concepts we have covered in this class. Your project should have the items/features below:
 
-Must use PyQT6 library and have a gui interface (tkinter code or any other library will not be accepted).
-Code is organized into modules where applicable (lab 11 is a good example of code separation).
+check Must use PyQT6 library and have a gui interface (tkinter code or any other library will not be accepted).
+check Code is organized into modules where applicable (lab 11 is a good example of code separation).
 Data must be stored in a proper format either in a CSV file, txt file, or database (excluding lab 12).
 Data validation for input coming from the keyboard.
 Exception handling must be present to deal with runtime errors.
