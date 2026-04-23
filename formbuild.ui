@@ -203,10 +203,10 @@
   <widget class="QLabel" name="output_label">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>240</y>
-     <width>71</width>
-     <height>20</height>
+     <x>10</x>
+     <y>239</y>
+     <width>301</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -214,6 +214,9 @@
    </property>
    <property name="text">
     <string>Submitted</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
   <widget class="QPushButton" name="submit_button">

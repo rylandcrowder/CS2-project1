@@ -5,7 +5,7 @@ class Logic(QMainWindow, Ui_Form):
     def __init__(self) -> None:
         super().__init__()
         self.setupUi(self)
-        self.reset_inputs()
+        self.reset_gui()
         self.submit_button.clicked.connect(lambda: self.submit)
         self.attempt_input.textChanged.connect(lambda: self.show_inputs(self.attempt_input.text()))
 
@@ -44,7 +44,7 @@ class Logic(QMainWindow, Ui_Form):
         try:
             attempts = int(input_attempts)
             
-            if attempts < 0 or attempts > 6:
+            if attempts < 1 or attempts > 6:
                 self.output_label.setText("Invalid number of attempts")
                 return
             if attempts >= 1:
@@ -65,6 +65,7 @@ class Logic(QMainWindow, Ui_Form):
             if attempts >= 6:
                 self.score6_input.show()
                 self.score6_label.show()
+            self.output_label.setText("")
         
         except (TypeError, ValueError):
             self.output_label.setText("Please enter a valid number of attempts")
