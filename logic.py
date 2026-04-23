@@ -73,7 +73,7 @@ class Logic(QMainWindow, Ui_Form):
             self.output_label.setText("Please enter a valid number of attempts")
             self.hide_inputs()
         
-    def write_to_file(self, name, scores):
+    def write_to_file(self, name, scores) -> None:
         print("began write to file")
         try:
             if self.file_input.text() != None and self.file_input.text().strip() != '':
@@ -85,7 +85,7 @@ class Logic(QMainWindow, Ui_Form):
                         print('right before header write')
                         writer.writerow(['Name', 'Score 1', 'Score 2', 'Score 3', 'Score 4', 'Score 5', 'Score 6', 'Final'])
 
-                    final_grade = sum(scores) / len(scores) # figure this out
+                    final_grade = sum(scores) / len(scores)
                     print('right before main write')
                     writer.writerow([name] + scores + [''] * (6 - len(scores)) + [final_grade])
             else:
@@ -93,7 +93,7 @@ class Logic(QMainWindow, Ui_Form):
         except:
             self.output_label.setText("Error writing to file")
 
-    def submit(self):
+    def submit(self) -> None:
         name = self.name_input.text()
         if name == None or name.strip() == '':
             self.output_label.setText("Please enter a name")
