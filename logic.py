@@ -94,6 +94,12 @@ class Logic(QMainWindow, Ui_Form):
             self.output_label.setText("Error writing to file")
 
     def submit(self) -> None:
+        '''
+        This function is called when the submit button is clicked. 
+        It validates the input, reorganizes it into two variables,
+        calls the write function, and resets the GUI.
+        '''
+
         name = self.name_input.text()
         if name == None or name.strip() == '':
             self.output_label.setText("Please enter a name")
@@ -120,11 +126,7 @@ class Logic(QMainWindow, Ui_Form):
             self.reset_gui()
             self.output_label.setText("Submitted")
         
-        except ValueError:
-            self.output_label.setText("Error writing to file")
-            print("ValueError")
-            return
-        except TypeError:
+        except:
             self.output_label.setText("Please enter valid scores (0-100)")
             print("TypeError")
             return
