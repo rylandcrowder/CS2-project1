@@ -2,9 +2,74 @@ from PyQt6.QtWidgets import *
 from gui import *
 
 class Logic(QMainWindow, Ui_Form):
-    def __init__(self):
-        pass
+    def __init__(self) -> None:
+        super().__init__()
+        self.setupUi(self)
+        self.reset_inputs()
+        self.submit_button.clicked.connect(lambda: self.submit)
+        self.attempt_input.textChanged.connect(lambda: self.show_inputs(self.attempt_input.text()))
 
-    def process(self, data):
-        # Implement your logic here
-        return data
+    def reset_gui(self) -> None:
+        self.hide_inputs()
+        
+        self.name_input.clear()
+        self.attempt_input.clear()
+        
+        self.score1_input.clear()
+        self.score2_input.clear()
+        self.score3_input.clear()
+        self.score4_input.clear()
+        self.score5_input.clear()
+        self.score6_input.clear()
+
+        self.output_label.setText("")
+
+    def hide_inputs(self) -> None:    
+        self.score1_input.hide()
+        self.score2_input.hide()
+        self.score3_input.hide()
+        self.score4_input.hide()
+        self.score5_input.hide()
+        self.score6_input.hide()
+        
+        self.score1_label.hide()
+        self.score2_label.hide()
+        self.score5_label.hide()
+        self.score6_label.hide()
+        self.score3_label.hide()
+        self.score4_label.hide()
+
+
+    def show_inputs(self, input_attempts) -> None:
+        try:
+            attempts = int(input_attempts)
+            
+            if attempts < 0 or attempts > 6:
+                self.output_label.setText("Invalid number of attempts")
+                return
+            if attempts >= 1:
+                self.score1_input.show()
+                self.score1_label.show()
+            if attempts >= 2:
+                self.score2_input.show()
+                self.score2_label.show()
+            if attempts >= 3:
+                self.score3_input.show()
+                self.score3_label.show()
+            if attempts >= 4:
+                self.score4_input.show()
+                self.score4_label.show()
+            if attempts >= 5:
+                self.score5_input.show()
+                self.score5_label.show()
+            if attempts >= 6:
+                self.score6_input.show()
+                self.score6_label.show()
+        
+        except (TypeError, ValueError):
+            self.output_label.setText("Please enter a valid number of attempts")
+            self.hide_inputs()
+        
+
+    def submit(self):
+        pass

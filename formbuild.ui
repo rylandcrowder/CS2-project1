@@ -19,9 +19,9 @@
   <widget class="QLineEdit" name="name_input">
    <property name="geometry">
     <rect>
-     <x>140</x>
+     <x>160</x>
      <y>30</y>
-     <width>121</width>
+     <width>101</width>
      <height>21</height>
     </rect>
    </property>
@@ -44,12 +44,12 @@
     <rect>
      <x>30</x>
      <y>60</y>
-     <width>101</width>
+     <width>131</width>
      <height>16</height>
     </rect>
    </property>
    <property name="text">
-    <string>No of attempts:</string>
+    <string>No of attempts (1-6):</string>
    </property>
   </widget>
   <widget class="QLabel" name="score1_label">
@@ -81,9 +81,9 @@
   <widget class="QLineEdit" name="attempt_input">
    <property name="geometry">
     <rect>
-     <x>140</x>
+     <x>160</x>
      <y>60</y>
-     <width>121</width>
+     <width>101</width>
      <height>21</height>
     </rect>
    </property>
