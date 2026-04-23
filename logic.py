@@ -4,6 +4,10 @@ import csv
 
 class Logic(QMainWindow, Ui_Form):
     def __init__(self) -> None:
+        """
+        This is the constructor for the Logic class. It initializes the GUI 
+        and connects the buttons to their respective functions.
+        """
         super().__init__()
         self.setupUi(self)
         self.reset_gui()
@@ -11,6 +15,10 @@ class Logic(QMainWindow, Ui_Form):
         self.attempt_input.textChanged.connect(lambda: self.show_inputs(self.attempt_input.text()))
 
     def reset_gui(self) -> None:
+        """
+        This function resets the GUI to its initial state. It is called after a 
+        successful submission.
+        """
         self.hide_inputs()
         
         self.name_input.clear()
@@ -27,6 +35,11 @@ class Logic(QMainWindow, Ui_Form):
         self.output_label.setText("")
 
     def hide_inputs(self) -> None:    
+        """
+        This function hides all the score input fields and labels. It is 
+        called when the number of attempts is changed or when there is an 
+        error in the input.
+        """
         self.score1_input.hide()
         self.score2_input.hide()
         self.score3_input.hide()
@@ -43,6 +56,10 @@ class Logic(QMainWindow, Ui_Form):
 
 
     def show_inputs(self, input_attempts) -> None:
+        """
+        This function takes in the number of attempts as input and shows the 
+        corresponding number of score input fields.
+        """
         try:
             attempts = int(input_attempts)
             
@@ -74,7 +91,12 @@ class Logic(QMainWindow, Ui_Form):
             self.hide_inputs()
         
     def write_to_file(self, name, scores) -> None:
-        print("began write to file")
+        """
+        This function takes in a name and a list of scores, and writes them to 
+        a file in csv format. If there is no file, it creates one and adds a 
+        header row. If there is an error writing to the file, it displays an error 
+        message.
+        """
         try:
             if self.file_input.text() != None and self.file_input.text().strip() != '':
                 with open(self.file_input.text(), 'a+', newline='') as file:
@@ -92,6 +114,7 @@ class Logic(QMainWindow, Ui_Form):
                 self.output_label.setText("Please enter a file name")
         except:
             self.output_label.setText("Error writing to file")
+
 
     def submit(self) -> None:
         '''
@@ -128,6 +151,6 @@ class Logic(QMainWindow, Ui_Form):
         
         except:
             self.output_label.setText("Please enter valid scores (0-100)")
-            print("TypeError")
+            self.hide_inputs()
             return
         
