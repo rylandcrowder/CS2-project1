@@ -1,5 +1,5 @@
 from PyQt6.QtWidgets import *
-from FinalProject1.gui import *
+from gui import *
 import csv
 
 class Logic(QMainWindow, Ui_Form):
