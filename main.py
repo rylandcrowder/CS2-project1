@@ -1,4 +1,4 @@
-from logic import *
+from FinalProject1.logic import *
 
 def main():
     """
