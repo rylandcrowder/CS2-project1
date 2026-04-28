@@ -55,16 +55,18 @@ class Logic(QMainWindow, Ui_Form):
         self.score6_label.hide()
 
 
-    def show_inputs(self, input_attempts) -> None:
+    def show_inputs(self, input_attempts: str) -> None:
         """
         This function takes in the number of attempts as input and shows the 
         corresponding number of score input fields.
         """
         try:
+            self.hide_inputs()
             attempts = int(input_attempts)
             
             if attempts < 1 or attempts > 6:
                 self.output_label.setText("Invalid number of attempts")
+                self.hide_inputs()
                 return
             if attempts >= 1:
                 self.score1_input.show()
@@ -90,7 +92,7 @@ class Logic(QMainWindow, Ui_Form):
             self.output_label.setText("Please enter a valid number of attempts")
             self.hide_inputs()
         
-    def write_to_file(self, name, scores) -> None:
+    def write_to_file(self, name: str, scores: list[int]) -> None:
         """
         This function takes in a name and a list of scores, and writes them to 
         a file in csv format. If there is no file, it creates one and adds a 
@@ -98,35 +100,44 @@ class Logic(QMainWindow, Ui_Form):
         message.
         """
         try:
-            if self.file_input.text() != None and self.file_input.text().strip() != '':
+            file_path = self.file_input.text()
+            if file_path[-4:] != '.csv':
+                self.output_label.setText("Please enter a valid file name (with .csv extension)")
+                return False
+            if self.file_input.text().strip() != '':
                 with open(self.file_input.text(), 'a+', newline='') as file:
                     writer = csv.writer(file)
                     file.seek(0)
                     
                     if file.read().strip() == '':
-                        print('right before header write')
                         writer.writerow(['Name', 'Score 1', 'Score 2', 'Score 3', 'Score 4', 'Score 5', 'Score 6', 'Final'])
 
                     final_grade = sum(scores) / len(scores)
-                    print('right before main write')
                     writer.writerow([name] + scores + [''] * (6 - len(scores)) + [final_grade])
+                return True
             else:
                 self.output_label.setText("Please enter a file name")
+                return False
         except:
             self.output_label.setText("Error writing to file")
+            return False
 
 
     def submit(self) -> None:
-        '''
+        """
         This function is called when the submit button is clicked. 
         It validates the input, reorganizes it into two variables,
         calls the write function, and resets the GUI.
-        '''
+        """
 
         name = self.name_input.text()
-        if name == None or name.strip() == '':
+        if name.strip() == '':
             self.output_label.setText("Please enter a name")
             return
+        for char in name:
+            if char.isdigit():
+                self.output_label.setText("Please enter a name with no numbers")
+                return
         
         try:
             attempts = int(self.attempt_input.text())
@@ -140,14 +151,9 @@ class Logic(QMainWindow, Ui_Form):
                     self.output_label.setText("Please enter valid scores (0-100)")
                     return
             
-            if '' in score_list:
-                self.output_label.setText("Please fill in all score fields")
-                return
-            
-            self.write_to_file(name, score_list)
-            
-            self.reset_gui()
-            self.output_label.setText("Submitted")
+            if self.write_to_file(name, score_list):
+                self.reset_gui()
+                self.output_label.setText("Submitted")
         
         except:
             self.output_label.setText("Please enter valid scores (0-100)")
